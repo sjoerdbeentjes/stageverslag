@@ -50,26 +50,6 @@ export const mutations = {
 }
 
 export const actions = {
-  async getHeadingMonths ({commit}) {
-    const res = await axios.get('http://stageverslag.dev/api/1.1/tables/log/columns/month?access_token=SnDaRObKlZGUIHrY2eWZG3amDyAjJsRo')
-    const monthsObj = JSON.parse(res.data.data.options.options)
-    const months = Object.values(monthsObj)
-    commit('setMonths', months)
-  },
-
-  async getHeadingWeeks ({commit}) {
-    const res = await axios.get('http://stageverslag.dev/api/1.1/tables/log/columns/week?access_token=SnDaRObKlZGUIHrY2eWZG3amDyAjJsRo')
-    const weeksObj = JSON.parse(res.data.data.options.options)
-    const weeks = Object.values(weeksObj)
-    commit('setWeeks', weeks)
-  },
-
-  async getLogs ({commit}) {
-    const res = await axios.get('http://stageverslag.dev/api/1.1/tables/log/rows?access_token=SnDaRObKlZGUIHrY2eWZG3amDyAjJsRo')
-    const logs = res.data.data
-    commit('setLogs', logs)
-  },
-
   setSelectedWeek ({commit}, week) {
     commit('setSelectedWeek', week)
   },

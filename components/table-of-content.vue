@@ -7,7 +7,7 @@
 <script>
   import tableOfContentItem from '~/components/table-of-content-item'
   import { mapState, mapActions } from 'vuex'
-
+  
   export default {
     components: {
       tableOfContentItem
@@ -21,11 +21,6 @@
       ...mapState({
         headings: state => state.headings
       })
-    },
-
-    created () {
-      this.getHeadingMonths()
-      this.getHeadingWeeks()
     },
 
     methods: {
