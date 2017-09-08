@@ -12,9 +12,11 @@
 <style lang="scss">
   @import '../scss/variables';
 
-  aside {
+  .sidebar {
     border-right: 1px solid $lighter-grey;
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .sidebar__header {
@@ -27,7 +29,7 @@
 
       a {
         text-decoration: none;
-        color: $textColor;
+        color: $text-color;
 
         &:after {
           content: '';
@@ -39,5 +41,9 @@
         }
       }
     }
+  }
+
+  .sidebar__body {
+    overflow-y: auto;
   }
 </style>

@@ -1,12 +1,11 @@
 <template>
-  <div class="app">
+  <div class="app-wrapper">
     <nuxt></nuxt>
   </div>
 </template>
 
-<style>
-  .app {
-    display: flex;
+<style lang="scss" scoped>
+  .app-wrapper {
     height: 100%;
   }
 </style>

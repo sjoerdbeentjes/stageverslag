@@ -1,57 +1,38 @@
 <template>
   <ul class="table-of-contents">
-    <li v-for="chapter in chapters">
-      <a href="#">{{ chapter.title }}</a>
-      <ul>
-        <li v-for="chapter in chapter.chapters">
-          <a href="#">{{ chapter.title }}</a>
-        </li>
-      </ul>
-    </li>
+    <table-of-content-item v-for="month in headings.months" :weeks="headings.weeks" :month="month"></table-of-content-item>
   </ul>
 </template>
 
 <script>
+  import tableOfContentItem from '~/components/table-of-content-item'
+  import { mapState, mapActions } from 'vuex'
+
   export default {
+    components: {
+      tableOfContentItem
+    },
+
     data () {
-      return {
-        chapters: [
-          {
-            title: 'Januari',
-            chapters: [
-              {
-                title: 'Week 1'
-              },
-              {
-                title: 'Week 2'
-              },
-              {
-                title: 'Week 3'
-              },
-              {
-                title: 'Week 4'
-              }
-            ]
-          },
-          {
-            title: 'Februari',
-            chapters: [
-              {
-                title: 'Week 1'
-              },
-              {
-                title: 'Week 2'
-              },
-              {
-                title: 'Week 3'
-              },
-              {
-                title: 'Week 4'
-              }
-            ]
-          }
-        ]
-      }
+      return {}
+    },
+
+    computed: {
+      ...mapState({
+        headings: state => state.headings
+      })
+    },
+
+    created () {
+      this.getHeadingMonths()
+      this.getHeadingWeeks()
+    },
+
+    methods: {
+      ...mapActions([
+        'getHeadingMonths',
+        'getHeadingWeeks'
+      ])
     }
   }
 </script>
@@ -65,26 +46,5 @@
 
   .table-of-contents {
     padding: 0;
-  }
-
-  .table-of-contents > li a {
-    display: inline-block;
-    padding: 1em 1.5em;
-    width: 100%;
-    color: $textColor;
-    text-decoration: none;
-  }
-
-  .table-of-contents > li a:hover {
-    background-color: $grey;
-  }
-
-  .table-of-contents > li > a {
-    margin-top: 1em;
-    font-weight: 500;
-  }
-
-  .table-of-contents > li ul li a {
-    padding-left: 2.5em;
   }
 </style>
