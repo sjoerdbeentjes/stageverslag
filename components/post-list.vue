@@ -1,11 +1,13 @@
 <template>
   <div>
-    <ul class="post-list">
-      <post v-for="log in filterLogs" :log="log"></post>
-    </ul>
     <add-post v-if="addFormActive" class="add-post"></add-post>
     <button v-if="!addFormActive" @click="addFormActive = !
     addFormActive" class="button">Nieuwe toevoegen</button>
+
+    <ul v-if="filterLogs.length" class="post-list">
+      <post v-for="log in filterLogs" :log="log"></post>
+    </ul>
+    <p v-if="!addFormActive && !filterLogs.length" class="no-result">Er zijn helaas nog geen berichten 😕</p>
   </div>
 </template>
 
@@ -28,8 +30,6 @@
     },
 
     created () {
-      this.getLogs()
-
       this.$on('close', () => {
         this.addFormActive = false
       })
@@ -54,6 +54,7 @@
 
   button {
     margin-right: 0.5em;
+    margin-top: 1em;
 
     &:last-of-type {
       margin-right: 0;
@@ -67,5 +68,9 @@
   .add-post {
     width: 100%;
     max-width: 35em;
+  }
+
+  .no-result {
+    margin-top: 2em;
   }
 </style>

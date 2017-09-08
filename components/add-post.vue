@@ -7,7 +7,7 @@
     <textarea :class="{invalid : !body.valid}" v-model="body.data" name="body" id="body" cols="30" rows="10"></textarea>
 
     <button>Opslaan</button>
-    <button @click="cancel" class="danger">Annuleren</button>
+    <button @click="close" class="danger">Annuleren</button>
   </form>
 </template>
 
@@ -40,8 +40,8 @@
         'addPost'
       ]),
 
-      cancel () {
-        this.$parent.$emit('cancel')
+      close () {
+        this.$parent.$emit('close')
       },
 
       onFormSubmit () {
@@ -50,8 +50,8 @@
 
         if (this.title.valid && this.body.valid) {
           this.addPost({
-            title: this.title,
-            body: this.body,
+            title: this.title.data,
+            body: this.body.data,
             month: this.selectedMonth,
             week: this.selectedWeek.toLocaleLowerCase().replace(' ', '')
           })

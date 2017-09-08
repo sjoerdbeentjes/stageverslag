@@ -45,7 +45,7 @@ export const mutations = {
   },
 
   addLog (state, log) {
-    state.logs = [...state.logs, log]
+    state.logs = [log, ...state.logs]
   }
 }
 
@@ -59,6 +59,7 @@ export const actions = {
   },
 
   async addPost ({commit}, formData) {
+    console.log(formData)
     const res = await axios.post('http://stageverslag.dev/api/1.1/tables/log/rows?access_token=SnDaRObKlZGUIHrY2eWZG3amDyAjJsRo', formData)
     commit('addLog', res.data.data)
   }
