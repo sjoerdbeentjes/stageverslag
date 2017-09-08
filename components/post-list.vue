@@ -4,9 +4,10 @@
     <button v-if="!addFormActive" @click="addFormActive = !
     addFormActive" class="button">Nieuwe toevoegen</button>
 
-    <ul v-if="filterLogs.length" class="post-list">
-      <post v-for="log in filterLogs" :log="log"></post>
+    <ul class="post-list">
+      <post v-for="(log, index) in filterLogs" v-bind:key="index" :log="log"></post>
     </ul>
+
     <p v-if="!addFormActive && !filterLogs.length" class="no-result">Er zijn helaas nog geen berichten 😕</p>
   </div>
 </template>

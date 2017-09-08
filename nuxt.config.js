@@ -45,10 +45,17 @@ module.exports = {
   /*
    ** Loaders
    */
-  loaders: [
-    {
-      test: /\.s[a|c]ss$/,
-      loader: 'style!css!sass'
+  router: {
+    extendRoutes (routes) {
+      routes.push({
+        name: 'index',
+        path: '/:month/:week',
+        component: 'pages/index.vue'
+      })
     }
+  },
+
+  plugins: [
+    '~plugins/vuex-router-sync.js'
   ]
 }

@@ -2,15 +2,15 @@
   <li :class="{collapse: collapse}" class="table-of-content__item">
     <a @click="collapse = !collapse" href="#">{{ month }}</a>
     <ul v-if="weeks">
-      <li :class="{ active : selectedWeek === week && selectedMonth === month }" v-for="week in weeks">
-        <a href="#" @click="setSelectedWeek(week); setSelectedMonth(month)">{{ week }}</a>
+      <li :class="{ active : route.params.week === week.toLowerCase().replace(' ', '') && route.params.month === month }" v-for="week in weeks">
+        <nuxt-link exact :to="'/' + month + '/' + week.toLowerCase().replace(' ', '')" title="">{{ week }}</nuxt-link>
       </li>
     </ul>
   </li>
 </template>
 
 <script>
-  import { mapActions, mapState } from 'vuex'
+  import { mapState } from 'vuex'
 
   const dutchMonths = [
     'januari',
@@ -37,22 +37,12 @@
 
     created () {
       this.collapse = this.currentMonth !== this.month
-      this.setSelectedMonth(this.currentMonth)
-      this.setSelectedWeek(this.weeks[0])
     },
 
     computed: {
       ...mapState({
-        selectedWeek: state => state.selectedWeek,
-        selectedMonth: state => state.selectedMonth
+        route: state => state.route
       })
-    },
-
-    methods: {
-      ...mapActions([
-        'setSelectedWeek',
-        'setSelectedMonth'
-      ])
     },
 
     props: ['month', 'weeks']

@@ -1,7 +1,10 @@
 <template>
   <main class="post-viewer">
-    <h1>{{ selectedMonth }} - {{ selectedWeek }}</h1>
-    <post-list></post-list>
+    <welcome v-if="!route.params.week"></welcome>
+    <div v-else>
+      <h1>{{ route.params.month }} - {{ route.params.week }}</h1>
+      <post-list ></post-list>
+    </div>
   </main>
 </template>
 
@@ -9,10 +12,12 @@
   import { mapState } from 'vuex'
 
   import postList from '~/components/post-list'
+  import welcome from '~/components/welcome'
 
   export default {
     components: {
-      postList
+      postList,
+      welcome
     },
 
     data () {
@@ -21,8 +26,7 @@
 
     computed: {
       ...mapState({
-        selectedMonth: state => state.selectedMonth,
-        selectedWeek: state => state.selectedWeek
+        route: state => state.route
       })
     }
   }

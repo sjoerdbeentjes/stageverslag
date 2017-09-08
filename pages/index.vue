@@ -1,11 +1,5 @@
 <template>
-  <div class="app">
-    <sidebar>
-      <h1 slot="header"><a href="">Stage de Voorhoede</a></h1>
-      <table-of-content :test="'test'" slot="body"></table-of-content>
-    </sidebar>
-    <post-viewer></post-viewer>
-  </div>
+  <post-viewer></post-viewer>
 </template>
 
 <script>
@@ -31,9 +25,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .app {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
+  .app-main {
+    flex: 1;
   }
 </style>

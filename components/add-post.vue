@@ -30,8 +30,7 @@
 
     computed: {
       ...mapState({
-        selectedWeek: state => state.selectedWeek,
-        selectedMonth: state => state.selectedMonth
+        route: state => state.route
       })
     },
 
@@ -52,8 +51,8 @@
           this.addPost({
             title: this.title.data,
             body: this.body.data,
-            month: this.selectedMonth,
-            week: this.selectedWeek.toLocaleLowerCase().replace(' ', '')
+            month: this.route.params.month,
+            week: this.route.params.week
           })
 
           this.$parent.$emit('close')

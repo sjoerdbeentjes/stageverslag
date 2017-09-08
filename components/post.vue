@@ -1,8 +1,7 @@
 <template>
   <article class="post">
     <h2>{{ log.title }}</h2>
-    <h3>{{ log.week }} - {{ log.month }}</h3>
-    <p v-html="postHTML"></p>
+    <p>{{ log.body }}</p>
   </article>
 </template>
 

@@ -1,13 +1,21 @@
 <template>
-  <aside class="sidebar">
-    <header class="sidebar__header">
-      <slot name="header"></slot>
-    </header>
-    <div class="sidebar__body">
-      <slot name="body"></slot>
-    </div>
-  </aside>
+  <transition name="slide">
+    <aside class="sidebar" v-show="!show">
+      <header class="sidebar__header">
+        <slot name="header"></slot>
+      </header>
+      <div class="sidebar__body">
+        <slot name="body"></slot>
+      </div>
+    </aside>
+  </transition>
 </template>
+
+<script>
+  export default {
+    props: ['show']
+  }
+</script>
 
 <style lang="scss">
   @import '../scss/variables';

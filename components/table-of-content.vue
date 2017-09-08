@@ -1,13 +1,13 @@
 <template>
   <ul class="table-of-contents">
-    <table-of-content-item v-for="month in headings.months" :weeks="headings.weeks" :month="month"></table-of-content-item>
+    <table-of-content-item v-for="month in headings.months" v-bind:key="month" :weeks="headings.weeks" :month="month"></table-of-content-item>
   </ul>
 </template>
 
 <script>
   import tableOfContentItem from '~/components/table-of-content-item'
   import { mapState, mapActions } from 'vuex'
-  
+
   export default {
     components: {
       tableOfContentItem
@@ -33,7 +33,7 @@
 </script>
 
 <style lang="scss" scoped>
-  @import '../scss/variables';
+    @import '../scss/variables';
 
   ul {
     list-style: none;

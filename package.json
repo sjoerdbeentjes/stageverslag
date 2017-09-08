@@ -21,7 +21,8 @@
     "axios": "^0.16.2",
     "marked": "^0.3.6",
     "nuxt": "^1.0.0-rc8",
-    "vuex": "^2.4.0"
+    "vuex": "^2.4.0",
+    "vuex-router-sync": "^4.3.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
