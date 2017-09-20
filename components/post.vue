@@ -5,11 +5,10 @@
     <article v-else class="post">
       <header>
         <h2>{{ log.title }}</h2>
-        <button class="edit" @click="editMode = true
-        ">Edit</button>
+        <button class="edit" @click="editMode = true">Edit</button>
         <button @click="removePost(log.id)" class="remove danger">Verwijder</button>
       </header>
-      <p>{{ log.body }}</p>
+      <p v-html="log.body"></p>
     </article>  
   </div>
 </template>

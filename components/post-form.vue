@@ -13,6 +13,8 @@
 
 <script>
   import { mapActions, mapState } from 'vuex'
+  import * as marked from 'marked'
+  import * as toMarkdown from 'to-markdown'
 
   export default {
     props: {
@@ -24,7 +26,7 @@
     created () {
       if (this.logData) {
         this.title.data = this.logData.title
-        this.body.data = this.logData.body
+        this.body.data = toMarkdown(this.logData.body)
       }
     },
 
@@ -61,12 +63,14 @@
         this.title.data === '' ? this.title.valid = false : this.title.valid = true
         this.body.data === '' ? this.body.valid = false : this.body.valid = true
 
+        const parsedBody = marked(this.body.data)
+
         if (this.title.valid && this.body.valid) {
           if (this.logData) {
             this.updatePost({
               id: this.logData.id,
               title: this.title.data,
-              body: this.body.data,
+              body: parsedBody,
               month: this.route.params.month,
               week: this.route.params.week
             })
@@ -77,7 +81,7 @@
           } else {
             this.addPost({
               title: this.title.data,
-              body: this.body.data,
+              body: parsedBody,
               month: this.route.params.month,
               week: this.route.params.week
             })
