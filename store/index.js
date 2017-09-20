@@ -33,14 +33,31 @@ export const mutations = {
   },
 
   addLog (state, log) {
-    state.logs = [log, ...state.logs]
+    state.logs = [...state.logs, log]
+  },
+
+  updateLog (state, updatedLog) {
+    state.logs = state.logs.map(log => updatedLog.id === log.id ? updatedLog : log)
+  },
+
+  removeLog (state, id) {
+    state.logs = state.logs.filter(log => log.id !== id)
   }
 }
 
 export const actions = {
   async addPost ({commit}, formData) {
-    console.log(formData)
     const res = await axios.post('http://stageverslag.dev/api/1.1/tables/log/rows?access_token=SnDaRObKlZGUIHrY2eWZG3amDyAjJsRo', formData)
     commit('addLog', res.data.data)
+  },
+
+  async updatePost ({commit}, formData) {
+    const res = await axios.put(`http://stageverslag.dev/api/1.1/tables/log/rows/${formData.id}?access_token=SnDaRObKlZGUIHrY2eWZG3amDyAjJsRo`, formData)
+    commit('updateLog', res.data.data)
+  },
+
+  async removePost ({commit}, id) {
+    await axios.delete(`http://stageverslag.dev/api/1.1/tables/log/rows/${id}?access_token=SnDaRObKlZGUIHrY2eWZG3amDyAjJsRo`)
+    commit('removeLog', id)
   }
 }

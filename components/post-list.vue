@@ -1,10 +1,10 @@
 <template>
   <div>
-    <add-post v-if="addFormActive" class="add-post"></add-post>
+    <post-form v-if="addFormActive"></post-form>
     <button v-if="!addFormActive" @click="addFormActive = !
-    addFormActive" class="button">Nieuwe toevoegen</button>
+    addFormActive" class="add-post-button">Nieuwe toevoegen</button>
 
-    <ul class="post-list">
+    <ul v-if="filterLogs.length" class="post-list">
       <post v-for="(log, index) in filterLogs" v-bind:key="index" :log="log"></post>
     </ul>
 
@@ -16,12 +16,12 @@
   import { mapActions, mapGetters } from 'vuex'
 
   import post from '~/components/post'
-  import addPost from '~/components/add-post'
+  import postForm from '~/components/post-form'
 
   export default {
     components: {
       post,
-      addPost
+      postForm
     },
 
     data () {
@@ -53,9 +53,10 @@
 <style lang="scss">
   @import '../scss/variables';
 
-  button {
+  .add-post-button {
     margin-right: 0.5em;
     margin-top: 1em;
+    margin-bottom: 2.5em;
 
     &:last-of-type {
       margin-right: 0;
@@ -64,14 +65,5 @@
 
   .post-list {
     margin-bottom: 2em;
-  }
-
-  .add-post {
-    width: 100%;
-    max-width: 35em;
-  }
-
-  .no-result {
-    margin-top: 2em;
   }
 </style>
