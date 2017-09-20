@@ -8,7 +8,7 @@
       <post v-for="(log, index) in filterLogs" v-bind:key="index" :log="log"></post>
     </ul>
 
-    <p v-if="!addFormActive && !filterLogs.length" class="no-result">Er zijn helaas nog geen berichten 😕</p>
+    <p v-if="!addFormActive && !filterLogs.length" class="no-result">Er zijn helaas nog geen berichten 🙃</p>
   </div>
 </template>
 
