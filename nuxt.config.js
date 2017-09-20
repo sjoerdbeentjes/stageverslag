@@ -48,7 +48,7 @@ module.exports = {
   router: {
     extendRoutes (routes) {
       routes.push({
-        name: 'index',
+        name: 'weekIndex',
         path: '/:month/:week',
         component: 'pages/index.vue'
       })
