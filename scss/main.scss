@@ -1,0 +1,51 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'helvetica', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 45em;
+    margin: 0 auto;
+}
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: .75em 0
+}
+
+h3 {
+  font-size: 1.17em;
+  margin: .83em 0
+}
+
+h4 {
+  margin: 1.12em 0
+}
+
+h5 {
+  font-size: .83em;
+  margin: 1.5em 0
+}
+
+h6 {
+  font-size: .75em;
+  margin: 1.67em 0
+}
+
+time {
+    display: block;
+    font-size: 1em;
+    margin: .75em 0;
+    font-style: italic;
+}
