@@ -1,26 +1,28 @@
 <template>
   <div class="container">
-    <log-item :key="log.id" :log="log" v-for="log in logs"></log-item>
+    <log-item :key="log.id" :log="log" v-for="log in logs" v-if="logs.length"></log-item>
+    <p class="no-result">Er zij nog geen logs 🙃</p>
   </div>
 </template>
 
 <script>
-import * as logs from '~/data/current/logs.json';
-
 import logItem from '~/components/log-item';
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     logItem
   },
-  data() {
-    return {
-      logs
-    }
+  computed: {
+    ...mapGetters([
+      'logs'
+    ])
   }
 }
 </script>
 
 <style>
-
+  .no-result {
+    text-align: center;
+  }
 </style>

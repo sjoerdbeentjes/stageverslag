@@ -5,9 +5,8 @@
     
       <nav>
         <ul>
-          <li><nuxt-link exact to="/">Home</nuxt-link></li>
+          <li><nuxt-link exact to="/plan">Stageplan</nuxt-link></li>
           <li><nuxt-link exact to="/log">Log</nuxt-link></li>
-          <li><nuxt-link exact to="/report">Verslag</nuxt-link></li>
         </ul>
       </nav>
     </div>
@@ -30,6 +29,10 @@ export default {
       font-size: 2.5em;
       margin-bottom: 1em;
       text-align: center;
+    }
+
+    @media print {
+      display: none;
     }
   }
 

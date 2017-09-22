@@ -8,11 +8,21 @@
 </template>
 
 <script>
+import * as logs from '~/data/current/logs.json';
 import siteHeader from '~/components/site-header'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
     siteHeader
+  },
+  created() {
+    this.setLogs(logs);
+  },
+  methods: {
+    ...mapActions([
+      'setLogs'
+    ])
   }
 }
 </script>
