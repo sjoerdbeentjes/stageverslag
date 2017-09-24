@@ -16,9 +16,7 @@
   "dependencies": {
     "marked": "^0.3.6",
     "marked-token-tree": "^0.2.0",
-    "nuxt": "^1.0.0-rc11"
-  },
-  "devDependencies": {
+    "nuxt": "^1.0.0-rc11",
     "babel-eslint": "^7.2.3",
     "cheerio": "^1.0.0-rc.2",
     "circular-json": "^0.3.3",
