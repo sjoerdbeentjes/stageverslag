@@ -1,4 +1,6 @@
 const marked = require('marked');
+const tree = require('marked-token-tree');
+const CircularJSON = require('circular-json');
 
 module.exports = (dato, root) => {
   root.directory('data/current', dir => {
@@ -10,10 +12,10 @@ module.exports = (dato, root) => {
   })
 
   root.directory('data/current', dir => {
-    dir.createDataFile('stageplan.json', 'json', convertBodyToHtml(dato.stageplan.toMap()));
+    dir.createDataFile('stageplan.json', 'json', convertBodyToHtml(getHeadings(dato.stageplan.toMap())));
   })
 
-  function mapCollection (collection) {
+  function mapCollection(collection) {
     return collection.reduce((acc, item) => {
       const mappedData = convertBodyToHtml(item.toMap());
       acc.push(mappedData)
@@ -23,6 +25,11 @@ module.exports = (dato, root) => {
 
   function convertBodyToHtml(item) {
     item.body = marked(item.body);
+    return item;
+  }
+
+  function getHeadings(item) {
+    item.tree = CircularJSON.stringify(tree(item.body));
     return item;
   }
 }

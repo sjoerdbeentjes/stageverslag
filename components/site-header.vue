@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="container">
-      <h1>Stage bij de Voorhoede</h1>
+      <h1>Stage bij de Voorhoede <logo /></h1>
     
       <nav>
         <ul>
@@ -14,8 +14,12 @@
 </template>
 
 <script>
-export default {
+import logo from '~/components/logo';
 
+export default {
+  components: {
+    logo
+  }
 }
 </script>
 
@@ -29,6 +33,13 @@ export default {
       font-size: 2.5em;
       margin-bottom: 1em;
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        margin-left: 0.5em;
+      }
     }
 
     @media print {

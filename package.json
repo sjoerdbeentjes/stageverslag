@@ -15,10 +15,13 @@
   },
   "dependencies": {
     "marked": "^0.3.6",
+    "marked-token-tree": "^0.2.0",
     "nuxt": "^1.0.0-rc11"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "cheerio": "^1.0.0-rc.2",
+    "circular-json": "^0.3.3",
     "datocms-client": "^0.3.27",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
