@@ -29,7 +29,17 @@ module.exports = (dato, root) => {
   }
 
   function getHeadings(item) {
-    item.tree = CircularJSON.stringify(tree(item.body));
+    const fullTree = tree(item.body);
+    let headings = [];
+
+    fullTree.children.forEach(child => {
+      headings.push({
+        name: child.heading.text,
+        link: child.heading.text.toLowerCase().replace(' ', '-')
+      })
+    })
+
+    item.headings = CircularJSON.stringify(headings);
     return item;
   }
 }

@@ -3,8 +3,8 @@
     <aside class="table-of-contents">
       <h1>Inhoud</h1>
       <ul>
-        <li :key="block.text" v-for="block in tree.children">
-          <a :href="`#${block.heading.text.toLowerCase().replace(' ', '-')}`">{{ block.heading.text }}</a>
+        <li :key="heading.link" v-for="heading in headings">
+          <a :href="`#${heading.link}`">{{ heading.name }}</a>
         </li>
       </ul>
     </aside>
@@ -24,8 +24,8 @@ export default {
   },
 
   computed: {
-    tree() {
-      return JSON.parse(stageplan.tree);
+    headings() {
+      return JSON.parse(stageplan.headings);
     }
   },
 
