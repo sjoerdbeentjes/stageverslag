@@ -5,8 +5,8 @@
     
       <nav>
         <ul>
-          <li><nuxt-link exact to="/plan">Stageplan</nuxt-link></li>
-          <li><nuxt-link exact to="/log">Log</nuxt-link></li>
+          <li><nuxt-link to="/plan">Stageplan</nuxt-link></li>
+          <li><nuxt-link to="/log">Log</nuxt-link></li>
         </ul>
       </nav>
     </div>
