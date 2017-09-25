@@ -39,8 +39,13 @@ export default {
 .table-of-contents {
   margin-bottom: 3em;
 
+  @media print {
+    display: none;
+  }
+
   ul {
     padding-left: 1em;
+    line-height: 1.4;
   }
 }
 
@@ -68,6 +73,7 @@ article {
 
   p + ul {
     margin-top: 0.5em;
+    line-height: 1.4;
   }
 
   [alt="logo"] {

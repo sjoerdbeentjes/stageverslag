@@ -4,6 +4,9 @@
   "description": "Nuxt.js project",
   "author": "",
   "private": true,
+  "nuxt": {
+    "port": "3333"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
