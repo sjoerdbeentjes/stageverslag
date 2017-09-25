@@ -4,7 +4,7 @@ const CircularJSON = require('circular-json');
 
 module.exports = (dato, root) => {
   root.directory('data/current', dir => {
-    dir.createDataFile('logs.json', 'json', mapCollection(dato.logs));
+    dir.createDataFile('logs.json', 'json', mapCollection(dato.logs).reverse());
   })
 
   root.directory('data/current', dir => {

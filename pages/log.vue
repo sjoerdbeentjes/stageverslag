@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <log-item :key="log.id" :log="log" v-for="log in logs" v-if="logs.length"></log-item>
-    <p class="no-result">Er zij nog geen logs 🙃</p>
+    <p class="no-result" v-if="!logs.length">Er zij nog geen logs 🙃</p>
   </div>
 </template>
 
