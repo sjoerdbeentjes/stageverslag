@@ -1,10 +1,11 @@
 <template>
   <header>
     <div class="container">
-      <h1>Stage bij de Voorhoede <logo /></h1>
+      <h1><nuxt-link to="/">Stage bij de Voorhoede</nuxt-link><logo /></h1>
     
       <nav>
         <ul>
+          <li><nuxt-link exact to="/">Home</nuxt-link></li>
           <li><nuxt-link to="/plan">Stageplan</nuxt-link></li>
           <li><nuxt-link to="/log">Log</nuxt-link></li>
         </ul>
@@ -36,6 +37,11 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
 
       svg {
         margin-left: 0.5em;

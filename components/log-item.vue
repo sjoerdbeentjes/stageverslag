@@ -14,9 +14,17 @@ export default {
 
 <style lang="scss">
   .log-item {
-    padding-bottom: 2em;
+    padding-bottom: 3em;
     margin-bottom: 2em;
     border-bottom: 1px solid lightgrey;
+
+    &:first-of-type {
+      padding-top: 0;
+
+      h2 {
+        margin-top: 1em;
+      }
+    }
 
     &:last-of-type {
       border-bottom: none;

@@ -4,7 +4,7 @@ const CircularJSON = require('circular-json');
 
 module.exports = (dato, root) => {
   root.directory('data/current', dir => {
-    dir.createDataFile('logs.json', 'json', mapCollection(dato.logs).reverse());
+    dir.createDataFile('logs.json', 'json', mapCollection(dato.logs));
   })
 
   root.directory('data/current', dir => {
@@ -13,6 +13,10 @@ module.exports = (dato, root) => {
 
   root.directory('data/current', dir => {
     dir.createDataFile('stageplan.json', 'json', convertBodyToHtml(getHeadings(dato.stageplan.toMap())));
+  })
+
+  root.directory('data/current', dir => {
+    dir.createDataFile('home.json', 'json', convertBodyToHtml(dato.home.toMap()));
   })
 
   function mapCollection(collection) {
