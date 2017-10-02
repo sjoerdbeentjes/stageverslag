@@ -1,3 +1,5 @@
+const WorkboxBuildWebpackPlugin = require('workbox-webpack-plugin');
+
 module.exports = {
   /*
   ** Headers of the page
@@ -34,7 +36,16 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+
+    // plugins: [
+    //   new WorkboxBuildWebpackPlugin({
+    //     globPatterns: ['**/*.{html,js,css}'],
+    //     globIgnores: ['admin.html'],
+    //     swSrc: './src/sw.js',
+    //     swDest: './build/sw.js'
+    //   })
+    // ]
   },
 
   css: [
