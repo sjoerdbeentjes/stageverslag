@@ -16,7 +16,7 @@
     "precommit": "npm run lint",
     "heroku-postbuild": "npm run build",
     "data-dump": "dato dump",
-    "deploy": "npm run data-dump && npm run build && npm run generate && gh-pages -d dist && rm dist"
+    "deploy": "npm run data-dump && npm run build && npm run generate && gh-pages -d dist && rmdir dist"
   },
   "dependencies": {
     "babel-eslint": "^7.2.3",
