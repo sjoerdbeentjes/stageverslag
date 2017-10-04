@@ -16,10 +16,7 @@
     "precommit": "npm run lint",
     "heroku-postbuild": "npm run build",
     "data-dump": "dato dump",
-    "deploy": "npm run generate && gh-pages-deploy"
-  },
-  "gh-pages-deploy": {
-    "staticpath": "dist"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "babel-eslint": "^7.2.3",
@@ -42,6 +39,6 @@
     "workbox-webpack-plugin": "^2.0.3"
   },
   "devDependencies": {
-    "gh-pages-deploy": "^0.4.2"
+    "gh-pages": "^1.0.0"
   }
 }
