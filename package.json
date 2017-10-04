@@ -18,6 +18,9 @@
     "data-dump": "dato dump",
     "deploy": "npm run generate && gh-pages-deploy"
   },
+  "gh-pages-deploy": {
+    "staticpath": "dist"
+  },
   "dependencies": {
     "babel-eslint": "^7.2.3",
     "cheerio": "^1.0.0-rc.2",
