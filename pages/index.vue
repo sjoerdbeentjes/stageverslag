@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import * as home from '~/data/current/home.json';
+import * as home from '~/data/home.json';
 
 export default {
   data() {

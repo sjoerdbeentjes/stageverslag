@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import * as logs from '~/data/current/logs.json';
+import * as logs from '~/data/logs.json';
 import siteHeader from '~/components/site-header'
 import { mapActions } from 'vuex'
 

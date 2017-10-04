@@ -3,19 +3,19 @@ const tree = require('marked-token-tree');
 const CircularJSON = require('circular-json');
 
 module.exports = (dato, root) => {
-  root.directory('data/current', dir => {
+  root.directory('data', dir => {
     dir.createDataFile('logs.json', 'json', mapCollection(dato.logs));
   })
 
-  root.directory('data/current', dir => {
+  root.directory('data', dir => {
     dir.createDataFile('posts.json', 'json', mapCollection(dato.posts))
   })
 
-  root.directory('data/current', dir => {
+  root.directory('data', dir => {
     dir.createDataFile('stageplan.json', 'json', convertBodyToHtml(getHeadings(dato.stageplan.toMap())));
   })
 
-  root.directory('data/current', dir => {
+  root.directory('data', dir => {
     dir.createDataFile('home.json', 'json', convertBodyToHtml(dato.home.toMap()));
   })
 

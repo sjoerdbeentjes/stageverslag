@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import * as stageplan from '~/data/current/stageplan.json';
+import * as stageplan from '~/data/stageplan.json';
 
 export default {
   data() {
