@@ -16,6 +16,7 @@ export default {
   components: {
     siteHeader
   },
+  transition: 'fade',
   created() {
     this.setLogs(logs);
   },

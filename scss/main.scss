@@ -86,3 +86,16 @@ blockquote {
 article ul {
   padding-left: 1em;
 }
+
+// transitions
+.page-enter-active, .page-leave-active {
+  transition: all .1s ease-out;
+}
+
+.page-enter, .page-leave-active {
+  opacity: 0;
+}
+
+.page-enter {
+  transform: translateY(1em);
+}
