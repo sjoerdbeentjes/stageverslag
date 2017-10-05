@@ -27,10 +27,6 @@ export default {
     headings() {
       return JSON.parse(stageplan.headings);
     }
-  },
-
-  created() {
-    console.log(this.tree);
   }
 }
 </script>
