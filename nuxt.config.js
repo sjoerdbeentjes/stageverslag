@@ -36,20 +36,15 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    },
-
-    // plugins: [
-    //   new WorkboxBuildWebpackPlugin({
-    //     globPatterns: ['**/*.{html,js,css}'],
-    //     globIgnores: ['admin.html'],
-    //     swSrc: './src/sw.js',
-    //     swDest: './build/sw.js'
-    //   })
-    // ]
+    }
   },
 
   css: [
     // Load a node module directly (here it's a SASS file)
     '@/scss/main.scss'
+  ],
+
+  modules: [
+    '@nuxtjs/pwa'
   ]
 }

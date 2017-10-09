@@ -19,6 +19,7 @@
     "deploy": "npm run data-dump && npm run build && npm run generate && copyfiles CNAME ./dist && gh-pages -d dist --dotfiles"
   },
   "dependencies": {
+    "@nuxtjs/pwa": "^1.0.2",
     "babel-eslint": "^7.2.3",
     "cheerio": "^1.0.0-rc.2",
     "circular-json": "^0.3.3",
