@@ -45,6 +45,10 @@ module.exports = {
   ],
 
   modules: [
-    '@nuxtjs/pwa'
+    ['@nuxtjs/pwa', {
+      workbox: {
+        swSrc: './sw/sw.js'
+      }
+    }]
   ]
 }
