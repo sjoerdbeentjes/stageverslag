@@ -16,6 +16,7 @@
     "precommit": "npm run lint",
     "heroku-postbuild": "npm run build",
     "data-dump": "dato dump",
+    "build-static-prod": "npm run data-dump && npm run build && npm run generate",    
     "deploy": "npm run data-dump && npm run build && npm run generate && copyfiles CNAME ./dist && gh-pages -d dist --dotfiles"
   },
   "dependencies": {
