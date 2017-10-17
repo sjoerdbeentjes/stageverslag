@@ -12,10 +12,12 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "NODE_ENV='production' nuxt generate",
+    "expose": "ngrok http 3000",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
     "heroku-postbuild": "npm run build",
     "data-dump": "dato dump",
+    "build-static-prod": "npm run data-dump && npm run build && npm run generate",
     "deploy": "npm run data-dump && npm run build && npm run generate && copyfiles CNAME ./dist && gh-pages -d dist --dotfiles"
   },
   "dependencies": {
@@ -41,6 +43,8 @@
   },
   "devDependencies": {
     "copyfiles": "^1.2.0",
-    "gh-pages": "^1.0.0"
+    "gh-pages": "^1.0.0",
+    "ngrok": "^2.2.22",
+    "workbox-sw": "^2.1.0"
   }
 }
