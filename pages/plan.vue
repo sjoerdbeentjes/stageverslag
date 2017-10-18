@@ -89,6 +89,10 @@ article {
     @media print {
       page-break-before: always;
     }
+
+    &:target {
+      border-bottom: 2px solid #eddd3e
+    }
   }
 
   a {
