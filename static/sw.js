@@ -1,25 +1,23 @@
 importScripts('/workbox-sw.dev.v2.1.0.js');
 
-const workboxSW = new WorkboxSW({
-  clientsClaim: true
-});
+const workboxSW = new self.WorkboxSW();
 
 workboxSW.precache([
   {
-    "url": "/_nuxt/app.4714ecdb711f122aa308.js",
-    "revision": "2f5b08e153f4d85516c567096c93f74e"
+    "url": "/_nuxt/app.cb1bc5777f3798f76380.js",
+    "revision": "644fdf651cbedb84ef93b8abad50a0ce"
   },
   {
-    "url": "/_nuxt/common.9b6a51113aafcf5182b9.js",
-    "revision": "f73589a9e2cb01c61cc27f7e7955fa7e"
+    "url": "/_nuxt/common.748ea32ba0e5f8953ed7.js",
+    "revision": "c4edd0d2555e629dcfdfdb200fd2b5e4"
   },
   {
-    "url": "/_nuxt/layouts/default.b71c3009fcade43d81f8.js",
-    "revision": "8a803801dd091cf9c52555ed5e9a6029"
+    "url": "/_nuxt/layouts/default.ce29fe7a4e7fb3c97cde.js",
+    "revision": "78d0c19b06dea33d9661ba2c32d6851d"
   },
   {
-    "url": "/_nuxt/manifest.b213eb0e86180d0aaced.js",
-    "revision": "33a7f836217943c282985670295c1c15"
+    "url": "/_nuxt/manifest.5ae3eddde85e875e4faf.js",
+    "revision": "68fd3356fae5e53ad28e8fdeede7c378"
   },
   {
     "url": "/_nuxt/pages/index.7a7f8e72d62b91901dc6.js",
@@ -30,8 +28,12 @@ workboxSW.precache([
     "revision": "a678d977e170a034e84a1e3810d911db"
   },
   {
-    "url": "/_nuxt/pages/plan.e4edec98713046bdf160.js",
-    "revision": "3fc9fd5d42c5a32e6d974415f87815f5"
+    "url": "/_nuxt/pages/offline.613a6891b6390eed421a.js",
+    "revision": "aabe05a6b12a8ff22fd6075c78691872"
+  },
+  {
+    "url": "/_nuxt/pages/plan.0b2df9eb096ae6afd835.js",
+    "revision": "31b4e698ef07d73fab56214431d54ccf"
   },
   {
     "url": "/_nuxt/pages/report.23c832c5e89d684adf97.js",
@@ -41,45 +43,45 @@ workboxSW.precache([
 
 self.addEventListener('install', event => event.waitUntil(
   caches.open('sv-v1-core')
-  .then(cache => cache.addAll([
-    '/',
-  ]))
-  .then(self.skipWaiting())
+      .then(cache => cache.addAll([
+          '/offline/'
+      ]))
+      .then(self.skipWaiting())
 ));
 
 self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.mode === 'navigate') {
-    event.respondWith(
-      fetch(request)
-        .then(response => cachePage(request, response))
-        .catch(err => getCachedPage(request))
-        .catch(err => fetchCoreFile('/offline/'))
-    );
+      event.respondWith(
+          fetch(request)
+              .then(response => cachePage(request, response))
+              .catch(err => getCachedPage(request))
+              .catch(err => fetchCoreFile('/offline/'))
+      );
   } else {
-    event.respondWith(
-      fetch(request)
-        .catch(err => fetchCoreFile(request.url))
-        .catch(err => fetchCoreFile('/offline/'))
-    );
+      event.respondWith(
+          fetch(request)
+              .catch(err => fetchCoreFile(request.url))
+              .catch(err => fetchCoreFile('/offline/'))
+      );
   }
 });
 
 function fetchCoreFile(url) {
-  return caches.open('bs-v1-core')
-    .then(cache => cache.match(url))
-    .then(response => response ? response : Promise.reject());
+  return caches.open('sv-v1-core')
+      .then(cache => cache.match(url))
+      .then(response => response ? response : Promise.reject());
 }
 
 function getCachedPage(request) {
-  return caches.open('bs-v1-pages')
-    .then(cache => cache.match(request))
-    .then(response => response ? response : Promise.reject());
+  return caches.open('sv-v1-pages')
+      .then(cache => cache.match(request))
+      .then(response => response ? response : Promise.reject());
 }
 
 function cachePage(request, response) {
   const clonedResponse = response.clone();
-  caches.open('bs-v1-pages')
-    .then(cache => cache.put(request, clonedResponse));
+  caches.open('sv-v1-pages')
+      .then(cache => cache.put(request, clonedResponse));
   return response;
 }
