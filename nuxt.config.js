@@ -57,7 +57,7 @@ module.exports = {
     'short_name': 'Verslag',
     'theme_color': '#eddd3e',
     'background_color': '#eddd3e',
-    'display': 'browser',
+    'display': 'standalone',
     'Scope': '/',
     'start_url': '/',
     'icons': [
