@@ -2,21 +2,31 @@
   <article class="log-item">
     <h2>{{ log.title }}</h2>
     <time>{{ log.date }}</time>
-    <div v-html="log.body"></div>
+    <div class="body" v-html="log.body"></div>
+    <image-gallery :images="log.imageGallery"></image-gallery>
   </article>
 </template>
 
 <script>
+import imageGallery from '~/components/image-gallery';
+
 export default {
+  components: {
+    imageGallery
+  },
   props: ['log']
 }
 </script>
 
 <style lang="scss">
   .log-item {
-    padding-bottom: 3em;
+    padding-bottom: 2em;
     margin-bottom: 2em;
     border-bottom: 1px solid lightgrey;
+
+    .body {
+      margin-bottom: 1em;
+    }
 
     &:first-of-type {
       padding-top: 0;
