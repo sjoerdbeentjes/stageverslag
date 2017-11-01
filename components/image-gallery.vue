@@ -1,6 +1,6 @@
 <template>
   <section class="image-gallery">
-    <img @click="openLightbox(image)" v-for="image in images" :key="image.alt" :src="`${image.url}w=200&h=200&fit=crop`" :alt="image.alt">
+    <img @click="openLightbox(image)" v-for="image in images" :key="image.alt" :src="`${image.url}?w=200&h=200&fit=crop`" :alt="image.alt">
 
     <div @click="closeLightbox" class="lightbox" v-if="lightboxIsOpen">
       <img :src="currentImage.url" :alt="currentImage.alt">
