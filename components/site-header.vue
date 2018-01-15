@@ -7,6 +7,7 @@
         <ul>
           <li><nuxt-link exact to="/">Home</nuxt-link></li>
           <li><nuxt-link to="/plan">Stageplan</nuxt-link></li>
+          <li><nuxt-link to="/report">Stageverslag</nuxt-link></li>
           <li><nuxt-link to="/log">Log</nuxt-link></li>
         </ul>
       </nav>

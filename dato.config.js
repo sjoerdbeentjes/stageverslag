@@ -14,6 +14,10 @@ module.exports = (dato, root) => {
   root.directory('data', dir => {
     dir.createDataFile('stageplan.json', 'json', convertBodyToHtml(getHeadings(dato.stageplan.toMap())));
   })
+  
+  root.directory('data', dir => {
+    dir.createDataFile('stageverslag.json', 'json', convertBodyToHtml(getHeadings(dato.stageverslag.toMap())));
+  })
 
   root.directory('data', dir => {
     dir.createDataFile('home.json', 'json', convertBodyToHtml(dato.home.toMap()));
