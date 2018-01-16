@@ -20,7 +20,7 @@
     "precommit": "npm run lint",
     "heroku-postbuild": "npm run build",
     "data-dump": "dato dump",
-    "build-static-prod": "NODE_ENV='production' NODE_VERSION='9.4.0' npm run data-dump && npm run build && npm run generate",
+    "build-static-prod": "NODE_ENV='production' npm run data-dump && npm run build && npm run generate",
     "deploy": "npm run data-dump && npm run build && npm run generate && copyfiles CNAME ./dist && gh-pages -d dist --dotfiles"
   },
   "dependencies": {
