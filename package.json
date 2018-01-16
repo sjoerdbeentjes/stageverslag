@@ -7,6 +7,9 @@
   "nuxt": {
     "port": "3333"
   },
+  "engines": {
+    "node": ">=9"
+  },
   "scripts": {
     "dev": "HOST=0.0.0.0 PORT=3333 nuxt",
     "build": "nuxt build",
