@@ -32,7 +32,7 @@ export default {
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 3em;
       margin-bottom: 1em;
       text-align: center;
       display: flex;
@@ -40,7 +40,6 @@ export default {
       justify-content: center;
 
       a {
-        color: #000;
         text-decoration: none;
       }
 
@@ -56,6 +55,7 @@ export default {
 
   nav {
     text-align: center;
+    font-size: 1.2rem;
 
     ul {
       li {
@@ -68,7 +68,6 @@ export default {
 
         a {
           text-decoration: none;
-          color: #000;
 
           &.nuxt-link-active {
             text-decoration: underline;

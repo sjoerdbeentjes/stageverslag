@@ -8,13 +8,18 @@
         </li>
       </ul>
     </aside>
-    <article v-html="stageplan.body">
+    <article v-html="stageplan.body" v-lightbox>
     </article>
   </div>
 </template>
 
 <script>
+import Vue from 'vue';
+
 import * as stageplan from '~/data/stageverslag.json';
+
+import Lightbox from '../directives/lightbox';
+Vue.directive('lightbox', Lightbox);
 
 export default {
   data() {

@@ -6,9 +6,23 @@
   margin: 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Libre Baskerville', serif;  
   padding-bottom: 5em;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  color: #333;
+  padding: 0.5rem;
+  font-size: 1rem;
+
+  a {
+    color: #333;
+  }
 }
 
 .container {
@@ -17,35 +31,28 @@ body {
   margin: 0 auto;
 }
 
-a {
-  color: #000;
-
-  &:hover {
-    color: #0CAFCD;
-  }
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2.2em;
   margin: .67em 0
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 2em;
   margin: 2em 0 .75em;
 }
 
 h3 {
-  font-size: 1.17em;
+  font-size: 1.6em;
   margin: 1.2em 0 .5em;
 }
 
 h4 {
+  font-size: 1.4em;
   margin: 0.8em 0 0.3em;
 }
 
@@ -76,10 +83,10 @@ time {
 
 blockquote {
   border-left: 0.25em solid #e4e4e4;
-  padding-left: 0.75em;
+  padding-left: 1.2em;
   font-style: italic;
-  margin-bottom: 1em;
-  margin-top: 0.75em;
+  margin-bottom: 2em;
+  margin-top: 1.75em;
   display: block;
 }
 
@@ -123,9 +130,16 @@ article figure.half.right {
   }
 }
 
-
 article figure + h4 {
   clear: both;
+}
+
+article figure img {
+  border: 2px solid #bdc3c7;
+}
+
+article ul {
+  line-height: 1.5rem;
 }
 
 figcaption {
@@ -139,6 +153,23 @@ figcaption {
     display: inline-block;
     margin-right: 0.4rem;
     font-style: normal;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  img {
+    max-width: 90%;
+    max-height: 90%;
   }
 }
 
