@@ -8,6 +8,7 @@ export default {
       image.addEventListener('click', e => {
         document.body.insertAdjacentHTML('beforeend', `
         <div class="lightbox">
+          <button class="close" title="close"></button>
           <img src=${image.src}>
         </div>`)
 

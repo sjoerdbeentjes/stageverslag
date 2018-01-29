@@ -136,6 +136,7 @@ article figure + h4 {
 
 article figure img {
   border: 2px solid #bdc3c7;
+  cursor: pointer;
 }
 
 article ul {
@@ -170,6 +171,38 @@ figcaption {
   img {
     max-width: 90%;
     max-height: 90%;
+    background-color: #fff;
+  }
+
+  button.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background: white;
+
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      height: 60%;
+      width: 0.2rem;
+      background-color: #7f8c8d;
+      top: 20%;
+      left: calc(50% - 0.1rem);
+      border-radius: 0.2rem;
+    }
+
+    &:after {
+      content: '';
+      transform: rotate(45deg);
+    }
+    
+    &:before {
+      content: '';
+      transform: rotate(-45deg);
+    }
   }
 }
 

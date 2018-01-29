@@ -104,6 +104,12 @@ article {
     @media print {
       color: #000;
       text-decoration: none;
+
+      &:after {
+        content: " (" attr(href) ")";
+        color: #7f8c8d;
+        font-style: italic;
+      }
     }
   }
 }
