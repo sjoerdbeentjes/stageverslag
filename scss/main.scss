@@ -88,13 +88,51 @@ article ul {
   margin-bottom: 1em;  
 }
 
-article img {
+.report article img {
   width: 100%;
 }
 
-article img + em {
+article figure.small {
+  max-width: 20rem;
+}
+
+article figure.left {
+  float: left;
+}
+
+article figure.right {
+  float: right;
+}
+
+article figure.half {
+  width: 48%;
+  width: calc(50% - 0.5rem);
+}
+
+article figure.half.left {
+  margin-right: 1rem;
+
+  + figure.half {
+    margin-right: 0;
+  }
+}
+
+article figure.half.right {
+  + figure.half {
+    margin-left: 1rem;
+  }
+}
+
+
+article figure + h4 {
+  clear: both;
+}
+
+figcaption {
   display: block;
   margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-style: italic;
 
   &:before {
     content: '↑';
@@ -106,7 +144,7 @@ article img + em {
 
 // transitions
 .page-enter-active, .page-leave-active {
-  transition: all .1s ease-out;
+  transition: all .2s ease-out;
 }
 
 .page-enter, .page-leave-active {
@@ -115,4 +153,8 @@ article img + em {
 
 .page-enter {
   transform: translateY(1em);
+}
+
+.page-leave-active {
+  transform: translateY(-1em);
 }

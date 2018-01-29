@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container report">
     <aside class="table-of-contents">
       <h1>Inhoud</h1>
       <ul>
