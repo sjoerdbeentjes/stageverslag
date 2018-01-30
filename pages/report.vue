@@ -91,8 +91,10 @@ article {
   }
 
   h2 {
+    clear: both;
+    
     @media print {
-      page-break-before: always;
+      page-break-before: auto
     }
 
     &:target {
