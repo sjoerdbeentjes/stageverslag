@@ -85,16 +85,16 @@ article {
       width: 100%;
       height: 40%;
       position: absolute;
-      top: 18em;
+      top: 14em;
       left: 0;
     }
   }
 
   h2 {
     clear: both;
-    
+
     @media print {
-      page-break-before: auto
+      page-break-before: always;
     }
 
     &:target {
